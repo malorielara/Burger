@@ -32,6 +32,12 @@ var orm = {
 
         // add connection.query
         // dont forget to throw error
+        connection.query(queryString, function(err, result) {
+            if(err) {
+                throw err;
+            }
+            cb(result);
+        }
     },
 
     // create function -- creates the table for the the values
