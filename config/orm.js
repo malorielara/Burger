@@ -1,6 +1,7 @@
 // imports connection to mysql
 var connection = requrie("../config/connection.js");
 
+// print question marks
 function printQuestionMarks(num) {
     var arr = [];
 
@@ -10,6 +11,7 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 
+// object to sql
 function objToSql(ob) {
     var arr = [];
 
@@ -41,7 +43,12 @@ var orm = {
     // create function -- creates the table for the the values
     create: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
-
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ")";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks();
+        queryString += ") ";
     },
 
     // updates the table with new info
