@@ -27,9 +27,7 @@ var orm = {
     all: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
-
-        });
-
+        
         // add connection.query
         // dont forget to throw error
         connection.query(queryString, function(err, result) {
@@ -37,7 +35,7 @@ var orm = {
                 throw err;
             }
             cb(result);
-        }
+        });
     },
 
     // create function -- creates the table for the the values
